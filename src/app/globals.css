@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Floodlit night */
+    --bg: 15 17 32;
+    --surface: 24 27 46;
+    --raised: 31 35 58;
+    --line: 45 51 80;
+    --ink: 236 239 249;
+    --muted: 154 163 191;
+    --faint: 112 121 150;
+    --amber: 255 177 59;
+    --blue: 108 140 255;
+    --win: 47 208 122;
+    --draw: 138 147 173;
+    --loss: 255 95 109;
+    color-scheme: dark;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-bg text-ink antialiased;
+  }
+
+  ::selection {
+    background: rgb(var(--amber) / 0.28);
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--amber));
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-card border border-line bg-surface;
+  }
+
+  .score-type {
+    font-family: var(--font-condensed), Impact, sans-serif;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  .floodlight {
+    background-image: radial-gradient(
+        120% 130% at 10% -25%,
+        rgb(var(--amber) / 0.2),
+        transparent 55%
+      ),
+      radial-gradient(110% 120% at 95% -15%, rgb(var(--blue) / 0.18), transparent 55%);
+  }
+}
+
+@layer utilities {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
