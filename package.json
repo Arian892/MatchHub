@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "pwa:setup": "node icon-generator.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "~2.109.0",
